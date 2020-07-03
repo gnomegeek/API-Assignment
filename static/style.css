@@ -1,0 +1,15 @@
+body {
+    background-color: coral;
+}
+
+form {
+    margin: 30px;
+}
+
+input {
+    margin: 10px;;
+}
+
+.register {
+    text-align: center;
+}

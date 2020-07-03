@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Assignment</title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    
+</head>
+<body>
+    <div class="container">
+        {% if messages %}
+
+        
+
+            <div class="alert">{{messages}}</div>
+
+        
+        {% endif %}
+        <form action="load" method="GET">
+            <div class="form-group">
+                <input class="form-control btn btn-primary" type="submit" value="Add 10 users to DB">
+            </div>
+        </form>
+
+        <form action="dump" method="DELETE">
+            <div class="form-group">
+                <input type="submit" class="form-control btn btn-primary" value="Delete all users from DB">
+            </div>
+        </form>
+
+        <form action="{% url 'users' %}" method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <input class="form-control" type="text" name="userID" placeholder="Enter UserID to be deleted">
+                <input class="form-control btn btn-primary" type="submit" value="Delete User">
+            </div>
+            
+        </form>
+
+        <form action="{% url 'usersInfo' %}" method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <input type="text" class="form-control" name="userID" placeholder="Enter UserID to be find info">
+                <input type="submit" class="form-control btn btn-primary" value="Find Info">
+            </div>
+            
+        </form>
+
+        <a href="register"><button class="btn btn-secondary register">New Here ? Register Please</button></a>
+    </div>
+</body>
+</html>
